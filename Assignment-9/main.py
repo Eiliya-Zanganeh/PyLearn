@@ -1,5 +1,5 @@
 from random import randint
-
+import qrcode as q
 import gtts
 from persiantools.jdatetime import JalaliDate
 import telebot
@@ -144,7 +144,7 @@ def qrcode(message):
 
 def get_qrcode(message):
     print(message.from_user.username)
-    qr_img = qrcode.make(message.text)
+    qr_img = q.make(message.text)
     qr_img.save("/home/qrcode.png")
     with open("/home/qrcode.png", "rb") as file:
         bot.send_photo(message.chat.id, file)

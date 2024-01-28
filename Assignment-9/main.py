@@ -5,7 +5,7 @@ from persiantools.jdatetime import JalaliDate
 import telebot
 import datetime
 
-bot = telebot.TeleBot("6211484002:AAEY6TozPXAd3K52LSXLHcyvgDUcZZvouIE", parse_mode=None)
+bot = telebot.TeleBot("token", parse_mode=None)
 
 random_numbers = {}
 

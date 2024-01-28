@@ -28,17 +28,29 @@ markup.add(key_1, key_2, key_3, key_4, key_5, key_6, key_7)
 def start_chat(message):
     first_name = message.from_user.first_name
     bot.send_message(message.chat.id, f'Hello {first_name} ...')
+    print(message.from_user.username)
 
 
-@bot.message_handler(commands=['game', 'restart'])
+@bot.message_handler(commands=['game'])
 def start_game(message):
     username = message.from_user.username
     random_numbers[username] = randint(0, 100)
     msg = bot.send_message(message.chat.id, f'Enter Your Number (1, 100)...', reply_markup=game_markup)
     bot.register_next_step_handler(msg, game)
+    print(message.from_user.username)
+
+
+@bot.message_handler(commands=['restart'])
+def restart_game(message):
+    username = message.from_user.username
+    random_numbers[username] = randint(0, 100)
+    msg = bot.send_message(message.chat.id, f'Restarted...')
+    bot.register_next_step_handler(msg, game)
+    print(message.from_user.username)
 
 
 def game(message):
+    print(message.from_user.username)
     username = message.from_user.username
     try:
         user_input = int(message.text)
@@ -52,17 +64,20 @@ def game(message):
             msg = bot.send_message(message.chat.id, 'You Win...', reply_markup=game_markup)
             bot.register_next_step_handler(msg, game)
     except:
-        msg = bot.send_message(message.chat.id, 'Invalid Input...', reply_markup=game_markup)
-        bot.register_next_step_handler(msg, game)
+        pass
+        # msg = bot.send_message(message.chat.id, 'Invalid Input...', reply_markup=game_markup)
+        # bot.register_next_step_handler(msg, game)
 
 
 @bot.message_handler(commands=['age'])
 def age(message):
+    print(message.from_user.username)
     msg = bot.send_message(message.chat.id, f'Enter Your Age 1385/12/02 ...')
     bot.register_next_step_handler(msg, age_calculation)
 
 
 def age_calculation(message):
+    print(message.from_user.username)
     try:
         year, month, day = str(message.text).split('/')
         year, month, day = int(year), int(month), int(day)
@@ -78,11 +93,13 @@ def age_calculation(message):
 
 @bot.message_handler(commands=['voice'])
 def age(message):
+    print(message.from_user.username)
     msg = bot.send_message(message.chat.id, f'Enter Your Text ...')
     bot.register_next_step_handler(msg, get_voice)
 
 
 def get_voice(message):
+    print(message.from_user.username)
     user_text = message.text
     voice = gtts.gTTS(user_text, lang="en", slow=False)
     voice.save("/home/voice.mp3")
@@ -92,11 +109,13 @@ def get_voice(message):
 
 @bot.message_handler(commands=['max'])
 def max_item(message):
+    print(message.from_user.username)
     msg = bot.send_message(message.chat.id, f'Enter Your Numbers 10,20,30,40 ...')
     bot.register_next_step_handler(msg, find_max)
 
 
 def find_max(message):
+    print(message.from_user.username)
     user_list = str(message.text).split(',')
     user_list = map(lambda text: text.strip(), user_list)
     bot.send_message(message.chat.id, f'Max Arg is {max(user_list)}')
@@ -104,11 +123,13 @@ def find_max(message):
 
 @bot.message_handler(commands=['argmax'])
 def max_index_item(message):
+    print(message.from_user.username)
     msg = bot.send_message(message.chat.id, f'Enter Your Numbers 10,20,30,40 ...')
     bot.register_next_step_handler(msg, find_index_max)
 
 
 def find_index_max(message):
+    print(message.from_user.username)
     user_list = str(message.text).split(',')
     user_list = list(map(lambda text: text.strip(), user_list))
     bot.send_message(message.chat.id, f'Max Arg Index Is {user_list.index(max(user_list))}')
@@ -116,11 +137,13 @@ def find_index_max(message):
 
 @bot.message_handler(commands=["qrcode"])
 def qrcode(message):
+    print(message.from_user.username)
     msg = bot.send_message(message.chat.id, "Enter Your Text ...")
     bot.register_next_step_handler(msg, get_qrcode)
 
 
 def get_qrcode(message):
+    print(message.from_user.username)
     qr_img = qrcode.make(message.text)
     qr_img.save("/home/qrcode.png")
     with open("/home/qrcode.png", "rb") as file:
@@ -129,6 +152,7 @@ def get_qrcode(message):
 
 @bot.message_handler(commands=["help"])
 def help(message):
+    print(message.from_user.username)
     text = '''
         1- /game -> Number Game
         2- /restart -> Restart Game
@@ -144,6 +168,7 @@ def help(message):
 
 @bot.message_handler(func=lambda m: True)
 def menu(message):
+    print(message.from_user.username)
     help(message)
 
 

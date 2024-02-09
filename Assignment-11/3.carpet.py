@@ -1,5 +1,5 @@
 import numpy as np
-# carpet
+
 
 def generate_rug(n):
     carpet = np.array([[0] * n] * n)

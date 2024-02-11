@@ -3,6 +3,8 @@ from Series_Module import Series
 from Documentary_Module import Documentary
 from Clip_Module import Clip
 from datetime import time
+from pytube import YouTube
+
 
 def load_dataset():
     all_medias = []
@@ -120,6 +122,15 @@ def search_media_by_time(all_media):
 def show_all_media(all_media):
     for media in all_media:
         print(media)
+
+
+def download_media():
+    video_url = input("Enter the url: ")
+
+    yt = YouTube(video_url)
+    stream = yt.streams.get_highest_resolution()
+
+    stream.download('downloads/')
 
 
 def exit_user(all_media):

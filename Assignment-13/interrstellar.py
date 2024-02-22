@@ -7,6 +7,7 @@ class Game(arcade.Window):
     def __init__(self):
         super().__init__(width=900, height=800, title="Eiliya Game...")
         arcade.set_background_color(arcade.color.BLACK)
+        # self.background = arcade.load_texture("/home/eiliya/Desktop/Python/Arcade/img.jpg")
         self.background = arcade.load_texture(":resources:images/backgrounds/stars.png")
         self.spaceship = Spaceship(self)
         self.bad_spaceship = BadSpaceship(self)

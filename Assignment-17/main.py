@@ -12,7 +12,10 @@ is_opp_select = False
 
 def add_value(num):
     text = window.text_box.text()
-    text += str(num)
+    if text != "0":
+        text += str(num)
+    else:
+        text = str(num)
     window.text_box.setText(text)
 
 
@@ -38,12 +41,14 @@ def delete():
     if not char.isnumeric() or char != ".":
         is_opp_select = False
     text = "".join(text)
+    if text == "":
+        text = "0"
     window.text_box.setText(text)
 
 
 def clear():
     global is_opp_select
-    window.text_box.setText("")
+    window.text_box.setText("0")
     is_opp_select = False
 
 
@@ -57,19 +62,23 @@ def process():
     text = window.text_box.text()
     for char in text:
         if char == "+" or char == "-" or char == "×" or char == "÷":
-            opp = char
-            is_opp_set = True
+            print(char)
+            if not is_opp_set:
+                print(char)
+                opp = char
+                is_opp_set = True
         else:
             if is_opp_set:
                 num_2 += char
             else:
                 num_1 += char
-    try:
-        num_1 = float(num_1)
-        num_2 = float(num_2)
-    except:
-        opp = ""
-    is_opp_select = False
+    # try:
+    print(f"num 1: {num_1}")
+    print(f"num 2: {num_2}")
+    print(f"opp: {opp}")
+    num_1 = float(num_1)
+    num_2 = float(num_2)
+    # is_opp_select = False
     if opp == "+":
         result = num_1 + num_2
     elif opp == "-":

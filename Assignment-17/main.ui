@@ -34,6 +34,9 @@
     <property name="styleSheet">
      <string notr="true">color: #64CCC5;</string>
     </property>
+    <property name="text">
+     <string>0</string>
+    </property>
     <property name="readOnly">
      <bool>true</bool>
     </property>

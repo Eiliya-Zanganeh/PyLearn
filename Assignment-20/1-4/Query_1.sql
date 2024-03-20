@@ -1,0 +1,10 @@
+INSERT INTO Customers VALUES (NULL, "Alireza Kargar", "Mashhad", "Iran");
+INSERT INTO Customers VALUES (NULL, "Eiliya Zanganeh", "California", "USA");
+INSERT INTO Customers VALUES (NULL, "Mahdiyar Tagharrobi", "Seoul", "Korea");
+INSERT INTO Customers VALUES (NULL, "Matin Ghorbani", "Ottawa", "Canada");
+INSERT INTO Products VALUES (NULL, "Milk", 20000, 3);
+INSERT INTO Products VALUES (NULL, "rice", 50000, 4);
+INSERT INTO Products VALUES (NULL, "egg", 10000, 6);
+INSERT INTO Products VALUES (NULL, "bread", 10000, 0);
+INSERT INTO Products VALUES (NULL, "soda", 15000, 0);
+INSERT INTO Products VALUES (NULL, "shampo", 20000, 2);

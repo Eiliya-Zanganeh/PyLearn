@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>100</width>
+    <height>42</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Sudoku Game</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #FF204E;color: #DFF5FF;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="tabel_gl"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>100</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuNew_Game">
+    <property name="title">
+     <string>Game</string>
+    </property>
+    <addaction name="actionNew_ame"/>
+    <addaction name="actionOpen_File"/>
+    <addaction name="actionSolve"/>
+   </widget>
+   <widget class="QMenu" name="menuThem">
+    <property name="title">
+     <string>Theme</string>
+    </property>
+    <addaction name="actionRed"/>
+    <addaction name="actionYellow"/>
+    <addaction name="actionGreen"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuExit">
+    <property name="title">
+     <string>Exit</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuNew_Game"/>
+   <addaction name="menuThem"/>
+   <addaction name="menuHelp"/>
+   <addaction name="menuExit"/>
+  </widget>
+  <action name="actionNew_ame">
+   <property name="text">
+    <string>New Game</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionOpen_File">
+   <property name="text">
+    <string>Open File</string>
+   </property>
+  </action>
+  <action name="actionRed">
+   <property name="text">
+    <string>Red</string>
+   </property>
+  </action>
+  <action name="actionYellow">
+   <property name="text">
+    <string>Yellow</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionSolve">
+   <property name="text">
+    <string>Solve</string>
+   </property>
+  </action>
+  <action name="actionGreen">
+   <property name="text">
+    <string>Green</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

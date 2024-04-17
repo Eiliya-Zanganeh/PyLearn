@@ -1,6 +1,8 @@
 import sys
 import numpy as np
 from functools import partial
+
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import *
 from main_ui import Ui_MainWindow
 from sudoku_genarator import *
@@ -18,7 +20,7 @@ class MainWindow(QMainWindow):
 
         self.ui.actionNew_ame.triggered.connect(self.new_game)
         self.ui.actionOpen_File.triggered.connect(self.open_file)
-        self.ui.actionExit.triggered.connect(lambda: exit(0))
+        self.ui.actionExit.triggered.connect(lambda: self.close())
         self.ui.actionRed.triggered.connect(partial(self.change_theme, "red"))
         self.ui.actionYellow.triggered.connect(partial(self.change_theme, "yellow"))
         self.ui.actionGreen.triggered.connect(partial(self.change_theme, "green"))
@@ -29,6 +31,7 @@ class MainWindow(QMainWindow):
         self.new_game()
 
     def new_game(self):
+        self.is_win = True
         self.game = generate_sudoku()
         self.board = empty_cell(self.game, 40)
         for i in range(9):
@@ -49,11 +52,13 @@ class MainWindow(QMainWindow):
                     new_cell.setReadOnly(True)
                 else:
                     new_cell.setReadOnly(False)
+                new_cell.setAlignment(Qt.AlignCenter)
                 new_cell.textChanged.connect(partial(self.validation, i, j))
                 self.cells[i][j] = new_cell
                 self.ui.tabel_gl.addWidget(new_cell, i, j)
 
     def open_file(self):
+        self.is_win = True
         try:
             x = QFileDialog.getOpenFileName(self, 'Open file')
             with open(x[0], 'r') as f:
@@ -63,6 +68,7 @@ class MainWindow(QMainWindow):
                     line[last_index] = line[last_index].strip("\n")
                     for j, cell in enumerate(line):
                         self.cells[i][j].setText(cell)
+                        self.cells[i][j].setAlignment(Qt.AlignCenter)
                         if int(cell) == 0:
                             self.cells[i][j].setReadOnly(False)
                         else:
@@ -187,6 +193,7 @@ class MainWindow(QMainWindow):
             for j_idx, j in enumerate(i):
                 j.setText(str(self.game[i_idx][j_idx]))
                 j.setReadOnly(True)
+                j.setAlignment(Qt.AlignCenter)
 
 
 if __name__ == "__main__":

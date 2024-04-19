@@ -1,4 +1,4 @@
-# Interrstellar Game with Threading
+# Interstellar Game with Threading
 
 In this program, threading is used to create enemies
 
@@ -22,4 +22,9 @@ An attractive game for entertainment and leisure.
 To get started, you need to install the Arcade library
 ```
  pip install arcade
+```
+
+Run the following file to run the program.
+```
+python interrstellar.py
 ```

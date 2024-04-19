@@ -1,4 +1,4 @@
-## Review of trading in Python language.
+## Review of Threading in Python language.
 
 Examining parallel processing in the interstellar game and video-to-audio conversion program.
 

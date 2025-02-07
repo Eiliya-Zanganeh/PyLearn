@@ -1,0 +1,7 @@
+arcade~=2.6.17
+pandas~=2.2.1
+numpy~=1.26.4
+keras~=2.13.1
+tensorflow~=2.13.1
+matplotlib~=3.10.0
+scikit-learn~=1.5.1

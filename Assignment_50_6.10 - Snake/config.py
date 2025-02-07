@@ -1,0 +1,14 @@
+WINDOW_WIDTH = 800
+WINDOW_HEIGHT = 400
+
+# Select AI or Manual or ML
+MODE = "ML"
+
+COLLECT_DATASET = False
+SAVE_DATASET = "Dataset.csv"
+
+SNAKE_SPEED = 4
+SNACK_RADIUS = 16
+
+APPLE_IMAGE = 'assets/apple.png'
+APPLE_SIZE = 16

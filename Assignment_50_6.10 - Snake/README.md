@@ -5,11 +5,15 @@
 - There are 3 program modes in this project. It is a mode with user control. Another mode is using conditional commands
   for control. The last mode is program control with neural network.
 
+---
+
 ### Install Dependencies:
 
 ```shell
 pip install -r requirements.txt
 ```
+
+---
 
 ### Config Project:
 
@@ -29,6 +33,8 @@ pip install -r requirements.txt
 - APPLE_IMAGE: image of apple.
 - APPLE_SIZE: apple size.
 
+---
+
 #### Train Neural Network:
 
 - train_model.py read dataset and train model.
@@ -44,6 +50,8 @@ pip install -r requirements.txt
 - Loss: sparse categorical crossentropy.
 - Epochs: 200.
 
+---
+
 #### Result Train Model.
 
 | Data       | Loss   | Accuracy |
@@ -54,3 +62,7 @@ pip install -r requirements.txt
 
 ![image](results/train_val_accuracy.png)
 ![image](results/train_val_loss.png)
+
+---
+
+![image](Snake%20AI.gif)
